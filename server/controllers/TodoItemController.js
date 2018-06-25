@@ -46,7 +46,7 @@ const TodoItemController = {
       })
     })
     .then(todoItem => res.status(200).send({
-      message: "TodoItem Updated", todo}))
+      message: "TodoItem Updated", todoItem}))
     .catch(err =>
       res.status(500).send(err));
   },
@@ -59,10 +59,11 @@ const TodoItemController = {
       }
     })
     .then(todoItem => {
+      console.log("cc", todoItem)
       if(!todoItem) return res.status(404).send({
         message: "Not found"
       })
-      return todo.destroy()
+      return todoItem.destroy()
     })
     .then(() => res.status(200).send({
       message: "TodoItem deleted"}))
