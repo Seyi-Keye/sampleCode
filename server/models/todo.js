@@ -9,8 +9,10 @@ module.exports = (sequelize, DataTypes) => {
     Todo.associate = (models) => {
       Todo.hasMany(models.TodoItem, {
         foreignKey: "todoId",
-        as: "todos"
+        as: "todoItems"
       })
     };
+
+    return Todo;
 };
 
